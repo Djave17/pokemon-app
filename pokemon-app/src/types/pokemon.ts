@@ -3,27 +3,46 @@
 //     name: string, 
 // }
 
+export interface PokemonListResponse {
+  count: number 
+  results: PokemonListItem[]
+}
+export interface PokemonResponse {
+  id: number, 
+  name: string,
+  sprites: PokemonSprites,
+  types: PokemonTypeItem[]
+  height: number,
+  weight: number
+}
 interface PokemonTypeName {
     name: string
 }
 
 interface PokemonSprites { 
-    front_default: string | null 
+    front_default: string | null, 
+    front_shiny: string | null,
+    other: PokemonOtherSprites
+
+
 }
 
 interface PokemonTypeItem {
   type: PokemonTypeName
 }
 
-export interface PokemonResponse {
-  id: number, 
-  name: string,
-  sprites: PokemonSprites,
-  types: PokemonTypeItem[]
-}
 interface PokemonListItem {
     name: string
 }
-export interface PokemonListResponse {
-  results: PokemonListItem[]
+
+interface PokemonArtwork { 
+  front_default: string | null
+  front_shiny: string | null
+
+} 
+
+interface PokemonOtherSprites{ 
+  "official-artwork": PokemonArtwork
 }
+
+

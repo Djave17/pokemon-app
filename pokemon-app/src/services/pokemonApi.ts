@@ -12,16 +12,15 @@ export async function getPokemon(identifier: string): Promise<PokemonResponse> {
     return pokemon;
 }
 
-export async function getPokemonList(): Promise<PokemonListResponse> {
-   //const normalizedIdentifier = identifier.toLowerCase().trim();
+export async function getPokemonList(limit: number, offset: number): Promise<PokemonListResponse> {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
 
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
-    if (!response.ok) {
-        throw new Error('Error al obtener la lista de Pokémon: ' + response.statusText);
-    }
+    if(!response.ok) {
+        throw new Error("No se pudo obtener la lista de Pokémon")
+    }   
 
-    const data: PokemonListResponse = await response.json();
-    //return 
+    const data: PokemonListResponse = await response.json()
+    return data
 } 
 
 //https://tailwindflex.com/@thuggys/pokemon

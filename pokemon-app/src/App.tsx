@@ -2,6 +2,7 @@ import { useState, type SubmitEvent } from 'react'
 import './App.css'
 import type { PokemonResponse } from './types/pokemon'
 import { getPokemon } from './services/pokemonApi'
+import { PokemonCard } from './components/PokemonCard'
 
 function App() {
   
@@ -49,19 +50,9 @@ function App() {
     
     {error && 
       <p role="alert" style={{ color: 'red' }}>{error}</p>}
-    {pokemon && (
-      <div>
-        <h2>{pokemon.name} (ID: {pokemon.id})</h2>
-        {pokemon.sprites.front_default && (
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-        )}
-        <ul>
-          {pokemon.types.map((typeItem) => (
-            <li key={typeItem.type.name}>{typeItem.type.name}</li>
-          ))}
-        </ul>
-      </div>
-    )}
+    {/*PokemonCard*/}
+    {pokemon && <PokemonCard pokemon={pokemon} />}
+
     </>
   )
 }
