@@ -45,7 +45,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
             </span>))}
         </div>
         {/*Botón para cambiar la imagen del Pokémon a Shiny */}
-        <button className = "isShiny" color = "Error" type = "button" onClick={() => setIsShiny((current) => !current)}> 
+        <button className = "isShiny" onClick={() => setIsShiny((current) => !current)}> 
         shiny
         </button>
     

@@ -38,9 +38,9 @@
     filter: drop-shadow(0 0 20px rgba(255, 138, 0, 0.5));
 }
 
-.isShiny{ 
-    background-color: #ffd700;
-    border: 2px solid #ffa500;
-    box-shadow: none;
+.pokemon-types {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 

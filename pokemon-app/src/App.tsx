@@ -17,9 +17,15 @@ function App() {
 
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault() //Evita que se recargue la pagina al enviar el formulario.
+    const normalizedSearchTerm = searchTerm.trim()
+
+    if(!normalizedSearchTerm) {
+      setError("Por favor ingrese un nombre de Pokémon")
+      return
+    }      
     setLoading(true) 
     setError(null) 
-    setPokemon(null)
+    
 
     try {
       const foundPokemon = await getPokemon(searchTerm) //Llamamos a la funcion getPokemon y le pasamos el termino de busqueda, que es el valor del input.
@@ -36,10 +42,11 @@ function App() {
   } 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <h1>Pokémon Search</h1>
+    <form className="mx-auto mb-8 flex w-full max-w-md gap-2" onSubmit={handleSubmit}>
       {/* El input actualiza el término de búsqueda */}
       <input
-        type="text"
+        type="search"
         placeholder="Buscar Pokémon..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)} 
