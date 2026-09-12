@@ -23,7 +23,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
     <div className="bg-neutral-900 min-h-screen flex items-center justify-center p-4">
       <article className="card">
         <p>#{id}</p>
-        <h2> <b>{pokemon.name.toLocaleUpperCase(1)}</b> </h2>
+        <h2> <b>{pokemon.name.toLocaleUpperCase()}</b> </h2>
         {imageUrl ? ( <img className="pokemon-image" src={imageUrl} alt={pokemon.name} />) : ( <p>No hay imagen disponible</p> )}
 
         <div className = "pokemon-dimensions"> 

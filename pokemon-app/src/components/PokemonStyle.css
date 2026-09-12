@@ -1,7 +1,11 @@
-.card {
+.card { /* Estilos para la tarjeta del Pokémon */
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 1rem;
+   
+    
+    
 }
 
 .card-container {
