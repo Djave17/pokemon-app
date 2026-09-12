@@ -1,10 +1,10 @@
 import { useEffect, useState, type SubmitEvent } from 'react'
 import './App.css'
-import type { PokemonResponse, PokemonListResponse } from './types/pokemon'
-import { getPokemon,getPokemonList } from './services/pokemonApi'
+import type { PokemonResponse, PokemonListResponse, PokemonListItem, PokemonPage} from './types/pokemon'
+import { getPokemon,getPokemonList, getPokemonPage} from './services/pokemonApi'
 import { PokemonCard } from './components/PokemonCard'
 import { TextField } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search'
+//import SearchIcon from '@mui/icons-material/Search'
 
 function App() {
   
@@ -17,14 +17,30 @@ function App() {
 
   const [error, setError] = useState<string | null>(null)
 
-  const [pokemonList, setPokemonList] = useState<PokemonResponse[]>([])
+  const [pokemonPage, setPokemonPage] = useState<PokemonPage | null>(null)
 
   const [isListLoading, setIsListLoading] = useState<boolean>(false)
+
+  const [listError, setListError] = useState<string | null>(null)
 
   useEffect(() => {
     async function loadInitialPokemon() {
       setIsListLoading(true)
-      const response = await getPokemonList(10, 0) 
+      setListError(null)
+      try { 
+        const pageResponse = await getPokemonPage(10, 0) //Obtenemos la primera pagina de pokemones, con un limite de 10 pokemones y un offset de 0.
+        setPokemonPage(pageResponse) //Guardamos la lista de pokemones en el estado.
+      }catch (caughtError) {
+        if (caughtError instanceof Error) {
+          setListError(caughtError.message)
+          console.error("Error al cargar la lista de Pokémon:", caughtError.message)
+        } else {
+          setListError("Error desconocido al cargar la lista de Pokémon" )
+          console.error("Error desconocido al cargar la lista de Pokémon: " + caughtError)
+        }
+      }finally {
+        setIsListLoading(false)
+      }   
     }
     loadInitialPokemon()
   }, []) //El array vacio indica que solo se ejecutara una vez, al montar el componente.
@@ -73,6 +89,20 @@ function App() {
     
     {error && 
       <p role="alert" style={{ color: 'red' }}>{error}</p>}
+
+    {isListLoading && <p>Cargando lista de Pokémons...</p>}
+
+    {listError && <p role="alert" style={{ color: 'red' }}>{listError}</p>}
+
+    {pokemonPage && (
+      <section className="pokemon-list">
+        {pokemonPage.items.map((pokemonItem) => (
+          <PokemonCard key={pokemonItem.id} pokemon={pokemonItem} />
+        ))}
+      </section>
+    )}
+
+    
     {/*PokemonCard*/}
     {pokemon && <PokemonCard pokemon={pokemon} />}
 

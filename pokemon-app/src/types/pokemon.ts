@@ -5,7 +5,7 @@
 
 export interface PokemonListResponse {
   count: number 
-  results: PokemonListItem[]
+  item: PokemonListItem[]
 }
 export interface PokemonResponse {
   id: number, 
@@ -14,6 +14,11 @@ export interface PokemonResponse {
   types: PokemonTypeItem[]
   height: number,
   weight: number
+}
+
+export interface PokemonPage { 
+  count: number
+  items: PokemonResponse[]
 }
 interface PokemonTypeName {
     name: string
@@ -31,7 +36,7 @@ interface PokemonTypeItem {
   type: PokemonTypeName
 }
 
-interface PokemonListItem {
+export interface PokemonListItem {
     name: string
     url: string
 }
@@ -45,5 +50,6 @@ interface PokemonArtwork {
 interface PokemonOtherSprites{ 
   "official-artwork": PokemonArtwork
 }
+
 
 
