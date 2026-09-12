@@ -1,8 +1,8 @@
 import { useEffect, useState, type SubmitEvent } from 'react'
 import './App.css'
-import type { PokemonResponse, PokemonListResponse, PokemonListItem, PokemonPage} from './types/pokemon'
-import { getPokemon,getPokemonList, getPokemonPage} from './services/pokemonApi'
-import { PokemonCard } from './components/PokemonCard'
+import type { PokemonResponse, PokemonListResponse, PokemonListItem, PokemonPage} from './features/pokemon/types/pokemon'
+import { getPokemon,getPokemonList, getPokemonPage} from './features/pokemon/services/pokemonApi'
+import { PokemonCard } from './features/pokemon/components/PokemonCard'
 import { TextField } from '@mui/material'
 //import SearchIcon from '@mui/icons-material/Search'
 
@@ -107,7 +107,6 @@ function App() {
       </section>
     )}
 
-    
     {/*PokemonCard*/}
     {hasSearched && pokemon && <PokemonCard pokemon={pokemon} />}
 
