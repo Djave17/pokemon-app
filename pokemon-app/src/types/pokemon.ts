@@ -33,6 +33,7 @@ interface PokemonTypeItem {
 
 interface PokemonListItem {
     name: string
+    url: string
 }
 
 interface PokemonArtwork { 

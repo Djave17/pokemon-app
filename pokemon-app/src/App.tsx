@@ -1,7 +1,7 @@
-import { useState, type SubmitEvent } from 'react'
+import { useEffect, useState, type SubmitEvent } from 'react'
 import './App.css'
-import type { PokemonResponse } from './types/pokemon'
-import { getPokemon } from './services/pokemonApi'
+import type { PokemonResponse, PokemonListResponse } from './types/pokemon'
+import { getPokemon,getPokemonList } from './services/pokemonApi'
 import { PokemonCard } from './components/PokemonCard'
 import { TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
@@ -16,6 +16,18 @@ function App() {
   const [loading, setLoading] = useState<boolean>(false)
 
   const [error, setError] = useState<string | null>(null)
+
+  const [pokemonList, setPokemonList] = useState<PokemonResponse[]>([])
+
+  const [isListLoading, setIsListLoading] = useState<boolean>(false)
+
+  useEffect(() => {
+    async function loadInitialPokemon() {
+      setIsListLoading(true)
+      const response = await getPokemonList(10, 0) 
+    }
+    loadInitialPokemon()
+  }, []) //El array vacio indica que solo se ejecutara una vez, al montar el componente.
 
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault() //Evita que se recargue la pagina al enviar el formulario.
