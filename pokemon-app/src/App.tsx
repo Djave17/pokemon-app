@@ -3,6 +3,8 @@ import './App.css'
 import type { PokemonResponse } from './types/pokemon'
 import { getPokemon } from './services/pokemonApi'
 import { PokemonCard } from './components/PokemonCard'
+import { TextField } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
 function App() {
   
@@ -45,11 +47,13 @@ function App() {
     <h1>Pokémon Search</h1>
     <form className="mx-auto mb-8 flex w-full max-w-md gap-2" onSubmit={handleSubmit}>
       {/* El input actualiza el término de búsqueda */}
-      <input
+      <TextField
         type="search"
-        placeholder="Buscar Pokémon..."
+        placeholder="Ejemplo: pikachu"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)} 
+        size = "small"
+        fullWidth
       />
       <button type="submit" disabled={loading}>{loading ? "Buscando..." : "Buscar"}</button>
     </form>
