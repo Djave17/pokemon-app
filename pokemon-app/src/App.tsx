@@ -23,6 +23,8 @@ function App() {
 
   const [listError, setListError] = useState<string | null>(null)
 
+  const [hasSearched, setHasSearched] = useState<boolean>(false)
+
   useEffect(() => {
     async function loadInitialPokemon() {
       setIsListLoading(true)
@@ -51,11 +53,14 @@ function App() {
 
     if(!normalizedSearchTerm) {
       setError("Por favor ingrese un nombre de Pokémon")
+      setPokemon(null)
+      setHasSearched(false)
       return
     }      
     setLoading(true) 
     setError(null) 
-    
+    setHasSearched(true)
+    setPokemon(null) //Limpiamos el estado del Pokémon antes de buscar uno nuevo.
 
     try {
       const foundPokemon = await getPokemon(searchTerm) //Llamamos a la funcion getPokemon y le pasamos el termino de busqueda, que es el valor del input.
@@ -94,7 +99,7 @@ function App() {
 
     {listError && <p role="alert" style={{ color: 'red' }}>{listError}</p>}
 
-    {pokemonPage && (
+    {!hasSearched && pokemonPage && (
       <section className="pokemon-list">
         {pokemonPage.items.map((pokemonItem) => (
           <PokemonCard key={pokemonItem.id} pokemon={pokemonItem} />
@@ -104,7 +109,7 @@ function App() {
 
     
     {/*PokemonCard*/}
-    {pokemon && <PokemonCard pokemon={pokemon} />}
+    {hasSearched && pokemon && <PokemonCard pokemon={pokemon} />}
 
     </>
   )
