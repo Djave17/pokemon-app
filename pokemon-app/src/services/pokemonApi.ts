@@ -28,7 +28,7 @@ export async function getPokemonPage(limit: number, offset: number): Promise<Pok
 
     const listResponse = await getPokemonList(limit, offset) 
 
-    const pokemonPromises = listResponse.item.map((pokemonItem) => getPokemon(pokemonItem.name))  //Devuelve un array de promesas, cada promesa es la respuesta de getPokemon para cada Pokémon en la lista.
+    const pokemonPromises = listResponse.results.map((pokemonItem) => getPokemon(pokemonItem.name))  //Devuelve un array de promesas, cada promesa es la respuesta de getPokemon para cada Pokémon en la lista.
 
     const pokemonList = await Promise.all(pokemonPromises) 
 

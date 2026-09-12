@@ -5,7 +5,7 @@
 
 export interface PokemonListResponse {
   count: number 
-  item: PokemonListItem[]
+  results: PokemonListItem[]
 }
 export interface PokemonResponse {
   id: number, 
