@@ -18,7 +18,7 @@ export function PokemonCatalogLayout({ header, sidebar, children, footer, mobile
         <Box>
             <Box component="header"
             sx={{
-                display: 'auto',
+                
                 padding: 2
                 }}>{header}
                 
@@ -29,16 +29,24 @@ export function PokemonCatalogLayout({ header, sidebar, children, footer, mobile
                     display: 'grid',
                     gridTemplateColumns: {
                         xs: "minmax(0, 1fr)", //En móvil, el contenido ocupa una sola columna.
-                        md: "1rem minmax(0, 1fr)", //En pantallas medianas y grandes, el sidebar ocupa 250px y el contenido principal ocupa el resto del espacio.
+                        md: "180px minmax(0, 1fr)",
+                        lg: "200px minmax(0, 1fr)", //En pantallas medianas y grandes, el sidebar ocupa 250px y el contenido principal ocupa el resto del espacio.
                     }
                 }}
             >
 
                 <Box component="aside"
                     sx={{
-                        display: { xs: 'none', md: 'block' }, //Oculta el sidebar en pantallas pequeñas y lo muestra en pantallas medianas y grandes.
-                        borderRight: 1, //Agrega un borde derecho al sidebar.
-                        borderColor: 'divider', //El color del borde es el color del divisor del tema.
+                        display: { xs: "none", md: "flex" },
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                        alignText: "center",
+                        padding: 2,
+                        boxSizing: "border-box",
+                        borderRight: 1,
+                        borderColor: "white",
+                        
                     }}>{sidebar}</Box>
                 <Box sx={{ minWidth: 0 }}>
                     <Box sx={{ display: { xs: 'block', md: 'none' } }}>{mobileFilters}</Box>

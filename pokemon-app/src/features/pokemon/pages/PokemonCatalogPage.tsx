@@ -3,7 +3,7 @@ import "../../../App.css";
 import type { PokemonResponse, PokemonPage } from '../types/pokemon'
 import { getPokemon, getPokemonPage } from '../services/pokemonApi'
 import { PokemonCard } from '../components/PokemonCard'
-import { TextField } from '@mui/material'
+
 import { PokemonCatalogLayout } from '../layouts/PokemonCatalogLayout'
 import { PokemonGrid } from '../components/PokemonGrid'
 import SearchBar from '../components/Search'
@@ -85,7 +85,7 @@ function PokemonCatalogPage() {
       header={
         <>
           <h1>Pokémon Search</h1>
-          <form className="mx-auto mb-8 flex w-full max-w-md gap-2" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             {/* El input actualiza el término de búsqueda */}
             <SearchBar
               placeholder="Ejemplo: pikachu"

@@ -7,6 +7,8 @@
     width: 100%; 
     height: 100%;
     box-sizing: border-box; /*padding y bordes quedan incluidos en el tamaño total.*/
+    margin-bottom: 1rem;
+    background-color: #fff;
     
 }
 

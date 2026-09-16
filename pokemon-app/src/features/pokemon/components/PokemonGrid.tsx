@@ -12,11 +12,11 @@ export function PokemonGrid({ children }: PokemonGridProps) {
                 display: 'grid',
                 gridTemplateColumns: {
                     xs: "minmax(0, 1fr)", //Un card por fila en pantallas pequeñas.
-                    sm: "repeat(2, minmax(0, 1fr))", //Dos cards por fila en pantallas medianas.
-                    lg: "repeat(3, minmax(0, 1fr))", //Tres cards por fila en pantallas grandes.
+                    sm: "repeat(2, minmax(0, 2fr))", //Dos cards por fila en pantallas medianas.
+                    lg: "repeat(3, minmax(0, 2fr))", //Tres cards por fila en pantallas grandes.
                 },
-                gap: 2, //Espacio entre los elementos de la cuadrícula.
-                padding: 2, //Padding alrededor de la cuadrícula.
+                gap: 4, //Espacio entre los elementos de la cuadrícula.
+                padding: 3, //Padding alrededor de la cuadrícula.
             }}
         >
             {children}

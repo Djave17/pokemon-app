@@ -1,19 +1,19 @@
 import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
+
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import SearchIcon from '@mui/icons-material/Search';
+import "../../../App.css"
+import "../../../index.css"
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  borderRadius: 13,
+  backgroundColor: alpha(theme.palette.text.primary, 0.08),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.text.primary, 0.12),
   },
   marginLeft: 0,
   width: '100%',
@@ -54,11 +54,12 @@ interface SearchBarProps {
     onSearch?: (searchTerm: string) => void;
     placeholder?: string;
     value: string;
+    disabled?: boolean;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 }
 
-export default function SearchBar({ placeholder, value, onChange }: SearchBarProps) {
+export default function SearchBar({ placeholder, value, onChange, disabled }: SearchBarProps) {
   return (
     <Box sx={{ flexGrow: 1 }}>
           <Search>
@@ -70,6 +71,7 @@ export default function SearchBar({ placeholder, value, onChange }: SearchBarPro
               inputProps={{ 'aria-label': 'search' }}
               value={value}
               onChange={onChange}
+              disabled={disabled || false}
             />
           </Search>
     </Box>
