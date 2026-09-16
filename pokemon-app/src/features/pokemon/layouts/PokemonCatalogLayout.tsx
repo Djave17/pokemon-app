@@ -16,14 +16,20 @@ export function PokemonCatalogLayout({ header, sidebar, children, footer, mobile
 
     return (
         <Box>
-            <Box component="header">{header}</Box>
+            <Box component="header"
+            sx={{
+                display: 'auto',
+                padding: 2
+                }}>{header}
+                
+            </Box>
 
             <Box
                 sx={{
                     display: 'grid',
                     gridTemplateColumns: {
                         xs: "minmax(0, 1fr)", //En móvil, el contenido ocupa una sola columna.
-                        md: "250px minmax(0, 1fr)", //En pantallas medianas y grandes, el sidebar ocupa 250px y el contenido principal ocupa el resto del espacio.
+                        md: "1rem minmax(0, 1fr)", //En pantallas medianas y grandes, el sidebar ocupa 250px y el contenido principal ocupa el resto del espacio.
                     }
                 }}
             >

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { PokemonResponse } from "../types/pokemon";
-import { Button, FormControlLabel, Switch } from "@mui/material"
+import { FormControlLabel, Switch } from "@mui/material"
 import "./PokemonStyle.css"
 
 

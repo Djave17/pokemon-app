@@ -6,6 +6,7 @@ import { PokemonCard } from '../components/PokemonCard'
 import { TextField } from '@mui/material'
 import { PokemonCatalogLayout } from '../layouts/PokemonCatalogLayout'
 import { PokemonGrid } from '../components/PokemonGrid'
+import SearchBar from '../components/Search'
 
 
 //import SearchIcon from '@mui/icons-material/Search'
@@ -86,17 +87,12 @@ function PokemonCatalogPage() {
           <h1>Pokémon Search</h1>
           <form className="mx-auto mb-8 flex w-full max-w-md gap-2" onSubmit={handleSubmit}>
             {/* El input actualiza el término de búsqueda */}
-            <TextField
-              type="search"
+            <SearchBar
               placeholder="Ejemplo: pikachu"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              size="small"
-              fullWidth
             />
-            <button type="submit" disabled={loading}>{loading ? "Buscando..." : "Buscar"}</button>
           </form>
-          <p>Buscar: {searchTerm}</p>
         </>
       }
       mobileFilters={<p>Filtros</p>}
