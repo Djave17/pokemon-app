@@ -14,7 +14,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
   const artwork = pokemon.sprites.other["official-artwork"]
   const imageUrl = isShiny ? artwork.front_shiny ?? artwork.front_default : artwork.front_default
   const id = pokemon.id.toString().padStart(3, "0")
-  const height = pokemon.height * 10
+  const height = pokemon.height / 10
   const weight = pokemon.weight / 10 
   
   

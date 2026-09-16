@@ -6,7 +6,8 @@ interface PokemonCatalogLayoutProps {
     header: ReactNode;
     sidebar: ReactNode;
     children: ReactNode;
-    footer?: ReactNode;
+    mobileFilters: ReactNode;
+    footer: ReactNode;
 }
 
 
