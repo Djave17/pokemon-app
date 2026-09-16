@@ -32,7 +32,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
             <span> Weight</span> 
           </div>
           <div> 
-            <strong>{height} cm</strong>
+            <strong>{height} m</strong>
             <span> Height</span>
             
           </div>

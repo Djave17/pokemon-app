@@ -96,6 +96,7 @@ function PokemonCatalogPage() {
           <p>Buscar: {searchTerm}</p>
         </>
       }
+      mobileFilters={<p>Filtros</p>}
       sidebar={<p>Filtros</p>}
       footer={<p>Paginacion</p>}
     >
