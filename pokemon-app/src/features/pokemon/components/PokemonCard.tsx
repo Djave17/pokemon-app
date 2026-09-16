@@ -2,7 +2,6 @@ import { useState } from "react";
 import type { PokemonResponse } from "../types/pokemon";
 import { Button, FormControlLabel, Switch } from "@mui/material"
 import "./PokemonStyle.css"
-import { Form } from "react-router";
 
 
 //Props: objeto que contiene la información del Pokémon

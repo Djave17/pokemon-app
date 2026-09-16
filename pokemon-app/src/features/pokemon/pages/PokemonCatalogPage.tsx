@@ -6,6 +6,8 @@ import { PokemonCard } from '../components/PokemonCard'
 import { TextField } from '@mui/material'
 import { PokemonCatalogLayout } from '../layouts/PokemonCatalogLayout'
 import { PokemonGrid } from '../components/PokemonGrid'
+
+
 //import SearchIcon from '@mui/icons-material/Search'
 
 function PokemonCatalogPage() {
