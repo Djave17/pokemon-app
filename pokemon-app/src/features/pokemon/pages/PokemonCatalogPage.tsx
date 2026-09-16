@@ -2,11 +2,11 @@ import { useEffect, useState, type SubmitEvent } from 'react'
 import "../../../App.css";
 import type { PokemonResponse, PokemonPage } from '../types/pokemon'
 import { getPokemon, getPokemonPage } from '../services/pokemonApi'
-import { PokemonCard } from '../components/PokemonCard'
+import { PokemonCard } from '../components/PokemonCard/PokemonCard'
 
 import { PokemonCatalogLayout } from '../layouts/PokemonCatalogLayout'
 import { PokemonGrid } from '../components/PokemonGrid'
-import SearchBar from '../components/Search'
+import SearchBar from '../components/SearchBar/Search'
 
 
 //import SearchIcon from '@mui/icons-material/Search'

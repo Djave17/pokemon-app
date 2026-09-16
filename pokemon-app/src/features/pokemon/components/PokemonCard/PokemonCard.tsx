@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { PokemonResponse } from "../types/pokemon";
+import type { PokemonResponse } from "../../types/pokemon";
 import { FormControlLabel, Switch } from "@mui/material"
 import "./PokemonStyle.css"
 
