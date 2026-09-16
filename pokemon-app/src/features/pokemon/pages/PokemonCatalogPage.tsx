@@ -114,4 +114,4 @@ function PokemonCatalogPage() {
   )
 }
 
-export default App
+export default PokemonCatalogPage
