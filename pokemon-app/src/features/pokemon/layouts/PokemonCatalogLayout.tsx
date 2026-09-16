@@ -19,17 +19,17 @@ export function PokemonCatalogLayout({ header, sidebar, children, footer, mobile
             <Box component="header">{header}</Box>
 
             <Box
-            sx={{
-                display: 'grid',
-                gridTemplateColumns: {
-                    xs: "minmax(0, 1fr)", //En pantallas pequeñas, el sidebar ocupa todo el ancho y el contenido principal se coloca debajo.
-                    md: "250px minmax(0, 1fr)", //En pantallas medianas y grandes, el sidebar ocupa 250px y el contenido principal ocupa el resto del espacio.
-                }
-            }}
+                sx={{
+                    display: 'grid',
+                    gridTemplateColumns: {
+                        xs: "minmax(0, 1fr)", //En móvil, el contenido ocupa una sola columna.
+                        md: "250px minmax(0, 1fr)", //En pantallas medianas y grandes, el sidebar ocupa 250px y el contenido principal ocupa el resto del espacio.
+                    }
+                }}
             >
-            </Box>
+
                 <Box component="aside"
-                    sx={ {
+                    sx={{
                         display: { xs: 'none', md: 'block' }, //Oculta el sidebar en pantallas pequeñas y lo muestra en pantallas medianas y grandes.
                         borderRight: 1, //Agrega un borde derecho al sidebar.
                         borderColor: 'divider', //El color del borde es el color del divisor del tema.
@@ -39,7 +39,7 @@ export function PokemonCatalogLayout({ header, sidebar, children, footer, mobile
                     <Box component="section">{children}</Box>
                     <Box component="footer">{footer}</Box>
                 </Box>
-                
+
             </Box>
 
         </Box>
