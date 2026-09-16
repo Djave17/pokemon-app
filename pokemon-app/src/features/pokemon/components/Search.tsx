@@ -5,8 +5,7 @@ import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
 
 import SearchIcon from '@mui/icons-material/Search';
-import "../../../App.css"
-import "../../../index.css"
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,7 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 interface SearchBarProps {
-    onSearch?: (searchTerm: string) => void;
+    
     placeholder?: string;
     value: string;
     disabled?: boolean;
@@ -67,8 +66,9 @@ export default function SearchBar({ placeholder, value, onChange, disabled }: Se
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder={placeholder || "Search…"}
-              inputProps={{ 'aria-label': 'search' }}
+              type="search"
+              placeholder={placeholder || "Buscar"}
+              inputProps={{ 'aria-label': 'Buscar Pokemon' }}
               value={value}
               onChange={onChange}
               disabled={disabled || false}

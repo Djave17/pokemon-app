@@ -41,7 +41,6 @@ export function PokemonCatalogLayout({ header, sidebar, children, footer, mobile
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "flex-start",
-                        alignText: "center",
                         padding: 2,
                         boxSizing: "border-box",
                         borderRight: 1,
