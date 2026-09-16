@@ -5,6 +5,7 @@ import { getPokemon, getPokemonPage } from '../services/pokemonApi'
 import { PokemonCard } from '../components/PokemonCard'
 import { TextField } from '@mui/material'
 import { PokemonCatalogLayout } from '../layouts/PokemonCatalogLayout'
+import { PokemonGrid } from '../components/PokemonGrid'
 //import SearchIcon from '@mui/icons-material/Search'
 
 function PokemonCatalogPage() {
@@ -111,11 +112,11 @@ function PokemonCatalogPage() {
       {listError && <p role="alert" style={{ color: 'red' }}>{listError}</p>}
 
       {!hasSearched && pokemonPage && (
-        <section className="pokemon-list">
+        <PokemonGrid>
           {pokemonPage.items.map((pokemonItem) => (
             <PokemonCard key={pokemonItem.id} pokemon={pokemonItem} />
           ))}
-        </section>
+        </PokemonGrid>
       )}
 
       {/*PokemonCard*/}
