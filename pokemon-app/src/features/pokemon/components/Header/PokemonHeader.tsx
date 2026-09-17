@@ -2,6 +2,8 @@ import type { SubmitEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import "./PokemonHeader.css";
+import { InputGroupInlineStart } from "./searchComponent";
 
 interface PokemonHeaderProps {
     searchValue: string;
@@ -15,8 +17,8 @@ export default function PokemonHeader({ onSearchSubmit, onSearchChange, searchVa
 ) {
     return (
         <header className="pokemon-header">
-            <div className="pokemon-header-content">
-                <div className="pokemon-header-brand">
+            <div className="pokemon-header__content">
+                <div className="pokemon-header__brand">
                     <span>POKEDAVE</span>
                     <small>151 Pokemón</small>
                 </div>
@@ -24,20 +26,17 @@ export default function PokemonHeader({ onSearchSubmit, onSearchChange, searchVa
                 <form
                     className="pokemon-search"
                     onSubmit={onSearchSubmit}>
-                    <label htmlFor="pokemon-search" className="sr-only">
-                        Buscar Pokemon
-                    </label>
-                    <Input
-                        id="pokemon-search"
-                        type="search"
-                        value={searchValue}
-                        onChange={(e) => onSearchChange(e.target.value)}
-                        placeholder="Buscar por nombre o número"
-                        disabled={isSearching}
-                    />
-                    <Button type="submit" disabled={isSearching}>
-                        {isSearching ? "Buscando…" : "Buscar"}
-                    </Button>
+                    
+                    
+
+                    <InputGroupInlineStart />
+
+
+
+                    {/* TODO: Shiny Global */}
+
+                    
+
 
                 </form>
 

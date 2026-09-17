@@ -6,7 +6,7 @@ import { PokemonCard } from '../components/PokemonCard/PokemonCard'
 
 import { PokemonCatalogLayout } from '../layouts/PokemonCatalogLayout'
 import { PokemonGrid } from '../components/PokemonGrid'
-import SearchBar from '../components/SearchBar/Search'
+import PokemonHeader from "../components/Header/PokemonHeader";
 
 
 //import SearchIcon from '@mui/icons-material/Search'
@@ -35,7 +35,7 @@ function PokemonCatalogPage() {
       setIsListLoading(true)
       setListError(null)
       try {
-        const pageResponse = await getPokemonPage(10, 0) //Obtenemos la primera pagina de pokemones, con un limite de 10 pokemones y un offset de 0.
+        const pageResponse = await getPokemonPage(9, 0) //Obtenemos la primera pagina de pokemones, con un limite de 10 pokemones y un offset de 0.
         setPokemonPage(pageResponse) //Guardamos la lista de pokemones en el estado.
       } catch (caughtError) {
         if (caughtError instanceof Error) {
@@ -83,17 +83,12 @@ function PokemonCatalogPage() {
   return (
     <PokemonCatalogLayout
       header={
-        <>
-          <h1>Pokémon Search</h1>
-          <form onSubmit={handleSubmit}>
-            {/* El input actualiza el término de búsqueda */}
-            <SearchBar
-              placeholder="Ejemplo: pikachu"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </form>
-        </>
+        <PokemonHeader
+          searchValue={searchTerm}
+          isSearching={loading}
+          onSearchChange={setSearchTerm}
+          onSearchSubmit={handleSubmit}
+        />
       }
       mobileFilters={<p>Filtros</p>}
       sidebar={<p>Filtros</p>}
