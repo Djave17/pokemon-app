@@ -11,6 +11,15 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group"
 
+import type {SubmitEvent } from "react"
+
+interface PokemonSearchProps {
+    searchValue: string;
+    isSearching: boolean;
+    onSearchChange: (value: string) => void;
+    onSearchSubmit: (event: SubmitEvent<HTMLFormElement>) => void;
+}
+
 export function InputGroupInlineStart() {
   return (
     <Field className="max-w-sm">
