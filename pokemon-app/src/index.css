@@ -101,6 +101,34 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.light {
+  color-scheme: light;
+
+  --background: #f7f9fc;
+  --foreground: #172033;
+
+  --surface: #ffffff;
+  --surface-elevated: #f1f5f9;
+
+  --card: #ffffff;
+  --card-foreground: #172033;
+
+  --popover: #ffffff;
+  --popover-foreground: #172033;
+
+  --muted: #edf1f7;
+  --muted-foreground: #667085;
+
+  --border: #d8dee8;
+  --input: #d8dee8;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #172033;
+  --sidebar-accent: #edf1f7;
+  --sidebar-accent-foreground: #172033;
+  --sidebar-border: #d8dee8;
+}
+
 /* Conexión entre las variables CSS y Tailwind/shadcn */
 @theme inline {
   --font-sans: var(--sans);
